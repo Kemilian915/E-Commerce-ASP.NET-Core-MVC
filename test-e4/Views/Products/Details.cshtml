@@ -1,0 +1,74 @@
+﻿@model Product
+
+@{
+	ViewData["Title"] = "Details product";
+}
+<input type="hidden" value="@Model.Id" />
+<section class="proDetails">
+	<div class="mainImage1">
+		<img src="@Model.ImageURL" alt="@Model.Name" />
+	</div>
+	<div class="productInfo" style="grid-column: 1 / span 2;">
+		<h3>@Html.DisplayFor(model => model.Name)</h3>
+		<div class="proTwoCols">
+			<div class="proCol">
+				<p>Price: @Html.DisplayFor(model => model.Price)$</p>
+				<p>Camera: @Html.DisplayFor(model => model.Camera)</p>
+				<p>Storage: @Html.DisplayFor(model => model.Storage)</p>
+			</div>
+			<div class="proCol">
+				<p>Battery: @Html.DisplayFor(model => model.Battery)</p>
+				<p>Color: @Html.DisplayFor(model => model.Color)</p>
+			</div>
+		</div>
+		<div class="proButton1">
+			<div class="addToCart1">
+			<a asp-controller="Products" asp-action="AddProductToCart" asp-route-id="@Model.Id">Add to Cart</a>
+			</div>
+			<div class="buttonGr">
+				@if (User.IsInRole("Admin"))
+				{
+					<a class="proButton" asp-action="Index">Show All</a>
+					<a class="proButton" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+				}
+				else if (User.IsInRole("User"))
+				{
+					<a class="proButton" asp-action="Index">Show All</a>
+				}
+				else
+				{
+					<a class="proButton" asp-action="Index">Show All</a>
+				}
+			</div>
+		</div>
+		<h3>Product Description</h3>
+		<p>@Html.DisplayFor(model => model.Description)</p>
+</section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	$(document).ready(function() {
+	  $('.addToCart').click(function(e) {
+		e.preventDefault();
+		var productId = $(this).data('id');
+
+		$.ajax({
+		  url: '/ShoppingCart/AddToCart/' + productId,
+		  method: 'POST',
+		  success: function(response) {
+		  },
+		  error: function() {
+			console.error('Error adding to cart');
+		  }
+		});
+	  });
+	});
+</script>
+
+@section Scripts {
+	<script>
+		$(document).ready(function () {
+			var output = document.getElementById("ImagePreview");
+			output.src = $("#ImageURL").val();
+		})
+	</script>
+}

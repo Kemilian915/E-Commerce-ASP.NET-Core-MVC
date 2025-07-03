@@ -1,0 +1,84 @@
+﻿@model Product
+
+@{
+	ViewData["Title"] = "Update product";
+}
+
+<section class="addPro">
+	<h1 class="addProTitle" style="grid-column: 1 / -1;">Add a new Product</h1>
+
+	<div class="addProImg">
+		<h1 class="imgTitle">Image</h1>
+		<img id="ImagePreview" />
+	</div>
+	<form asp-action="Edit" class="addProForm" style="grid-column: 2 / span 2;">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+		<div class="addProGrid">
+			<div class="addProCol">
+				<div class="addProBox">
+					<input asp-for="Name" required placeholder=" " class="addProInput" id="Name" />
+					<label asp-for="Name" class="addProLabel">Name</label>
+					<span asp-validation-for="Name" class="text-danger"></span>
+				</div>
+				<div class="addProBox">
+					<input asp-for="ImageURL" required placeholder=" " class="addProInput" id="ImageURL" />
+					<label asp-for="ImageURL" class="addProLabel">Image URL</label>
+					<span asp-validation-for="ImageURL" class="text-danger"></span>
+				</div>
+				<div class="addProBox">
+					<input asp-for="Price" required placeholder=" " class="addProInput" />
+					<label asp-for="Price" class="addProLabel">Price</label>
+					<span asp-validation-for="Price" class="text-danger"></span>
+				</div>
+				<div class="addProBox">
+					<input asp-for="Camera" required placeholder=" " class="addProInput" />
+					<label asp-for="Camera" class="addProLabel">Camera</label>
+					<span asp-validation-for="Camera" class="text-danger"></span>
+				</div>
+			</div>
+
+			<div class="addProCol">
+				<div class="addProBox">
+					<input asp-for="Storage" required placeholder=" " class="addProInput" />
+					<label asp-for="Storage" class="addProLabel">Storage</label>
+					<span asp-validation-for="Storage" class="text-danger"></span>
+				</div>
+				<div class="addProBox">
+					<input asp-for="Battery" required placeholder=" " class="addProInput" />
+					<label asp-for="Battery" class="addProLabel">Battery</label>
+					<span asp-validation-for="Battery" class="text-danger"></span>
+				</div>
+				<div class="addProBox">
+					<input asp-for="Color" required placeholder=" " class="addProInput" />
+					<label asp-for="Color" class="addProLabel">Color</label>
+					<span asp-validation-for="Color" class="text-danger"></span>
+				</div>
+				<div class="addProBox">
+					<input asp-for="Description" required placeholder=" " class="addProInput" />
+					<label asp-for="Description" class="addProLabel">Description</label>
+					<span asp-validation-for="Description" class="text-danger"></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="addProButton1">
+			<input type="submit" value="Update" class="addProButton" />
+			<a class="addProButton" asp-action="Index">Show All</a>
+		</div>
+	</form>
+</section>
+
+@section Scripts {
+	<script>
+			$(document).ready(function () {
+			var output = document.getElementById("ImagePreview");
+			output.src = $("#ImageURL").val();
+
+			$("#ImageURL").on("input", function () {
+				output.src = $(this).val();
+			});
+		});
+	</script>
+}

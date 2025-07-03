@@ -1,0 +1,99 @@
+﻿/* Single Product */
+
+.proDetails {
+    display: flex;
+    margin-top: 20px;
+    padding: 40px 100px;
+
+}
+
+    .proDetails .mainImage1 {
+        width: 30%;
+        margin-right: 50px;
+        margin-top: 10px;
+    }
+
+        .proDetails .mainImage1 img {
+            width: 100%;
+            border: 2px solid #f8c2ab;
+        }
+
+.proTwoCols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+}
+.proCol {
+    display: flex;
+    flex-direction: column;
+}
+    .proDetails .productInfo {
+        width: 60%;
+        margin-left: 60px;
+        margin-bottom: 60px;
+    }
+.productInfo h3{
+    margin-bottom: 50px;
+}
+.proButton1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+}
+.addToCart1 {
+    text-align:center;
+    margin: 20px 220px 20px 0;
+    background-color: green;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 8px 10px;
+    border-radius: 50px;
+    transition: 0.3s ease;
+    border: 1px solid #ffffff;
+}
+    .addToCart1:hover {
+        color: #000000;
+        background-color: lawngreen;
+    }
+.buttonGr {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin: 18px 0 20px 0;
+    flex-wrap: wrap; /* optional: allows wrapping if space is tight */
+}
+
+.proButton {
+    background-color: #fa4f06;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 50px;
+    transition: 0.3s ease;
+    cursor: pointer;
+    margin-right: 5px;
+}
+.proButton:hover {
+    box-shadow: 0 8px 24px hsla(206, 100%, 1%, 0.3);
+}
+form{
+    display: flex;
+    flex-direction: row;
+}
+.proDelete {
+    background-color: red;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 50px;
+    transition: 0.3s ease;
+    cursor: pointer;
+    margin-right: 5px;
+    border: none;
+}
+.proDelete:hover {
+    box-shadow: 0 8px 24px hsla(206, 100%, 1%, 0.3);
+}

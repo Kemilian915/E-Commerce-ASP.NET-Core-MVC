@@ -1,0 +1,58 @@
+﻿@using test_e4.ViewModels;
+@model LoginViewModel;
+
+@{
+	ViewData["Title"] = "Login";
+	Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<section class="login container grid" id="loginAccessRegister">
+	<ul class="loginHome">
+		<a asp-controller="Home" asp-action="Index">Home</a>
+	</ul>
+	<div class="loginAccess">
+		<h1 class="loginTitle">Log in to your account. </h1>
+		<div class="loginArea">
+			<form asp-action="Login" method="post" class="loginForm">
+				@Html.AntiForgeryToken()
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<div class="loginContent grid">
+					<div class="loginBox">
+						<input asp-for="Email" required placeholder=" " class="loginInput" />
+						<label asp-for="Email" class="loginLabel"></label>
+						<i class="ri-mail-fill loginIcon"></i>
+					</div>
+					<span asp-validation-for="Email" class="loginSpan"></span>
+					<div class="loginBox">
+						<input asp-for="Password" type="password" id="password" required placeholder=" " class="loginInput" />
+						<label asp-for="Password" class="loginLabel"></label>
+						<i class="ri-eye-off-fill loginIcon loginPassword" id="loginPassword"></i>
+					</div>
+					<span asp-validation-for="Password" class="loginSpan"></span>
+				</div>
+				<div class="float-end">
+					<a asp-controller="Account" asp-action="VerifyEmail" class="loginForgot">
+						Forgot Password?
+					</a>
+				</div>
+				<div class="form-check mb-3 loginRemember">
+					<label class="form-check-label">
+						<input asp-for="RememberMe" class="form-check-input" />
+						@Html.DisplayNameFor(a => a.RememberMe)
+					</label>
+				</div>
+				<input type="submit" value="Login" class="loginButton" />
+				<p class="loginSwitch">
+					Don`t have an account? <a asp-controller="Account" asp-action="Register" id="loginButtonRegister">Create Account</a>
+				</p>
+			</form>
+		</div>
+	</div>
+</section>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+	}
+}
+

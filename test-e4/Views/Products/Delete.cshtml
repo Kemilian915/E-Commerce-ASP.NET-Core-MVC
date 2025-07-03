@@ -1,0 +1,47 @@
+﻿@model Product
+
+@{
+	ViewData["Title"] = "Delete product";
+}
+
+<section class="proDetails">
+	<div class="mainImage1">
+		<img src="@Model.ImageURL" alt="@Model.Name" />
+	</div>
+	<div class="productInfo" style="grid-column: 1 / span 2;">
+		<h3>@Html.DisplayFor(model => model.Name)</h3>
+		<div class="proTwoCols">
+			<div class="proCol">
+				<p>Price: @Html.DisplayFor(model => model.Price)$</p>
+				<p>Camera: @Html.DisplayFor(model => model.Camera)</p>
+				<p>Storage: @Html.DisplayFor(model => model.Storage)</p>
+			</div>
+			<div class="proCol">
+				<p>Battery: @Html.DisplayFor(model => model.Battery)</p>
+				<p>Color: @Html.DisplayFor(model => model.Color)</p>
+			</div>
+		</div>
+
+		<div class="proButton1">
+			<button class="addToCart">Add to Cart</button>
+			<div class="buttonGr">
+				<a class="proButton" asp-action="Index">Show All</a>
+				<form asp-action="Delete">
+					<input type="hidden" asp-for="Id" />
+					<input type="submit" value="Delete" class="proDelete" />
+				</form>
+			</div>
+		</div>
+
+		<h3>Product Description</h3>
+		<p>@Html.DisplayFor(model => model.Description)</p>
+</section>
+
+@section Scripts {
+	<script>
+		$(document).ready(function () {
+			var output = document.getElementById("ImagePreview");
+			output.src = $("#ImageURL").val();
+		})
+	</script>
+}

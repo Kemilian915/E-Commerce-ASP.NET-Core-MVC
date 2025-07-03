@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "List of Products";
+}
+
+@section Hero{
+<section class="hero">
+    <img src="/images/s25ultra-cover.jpg" />
+    <div class="heroText">
+        <h2>Galaxy S25 Ultra</h2>
+        <h4>Galaxy AI</h4>
+        <button>Buy Now</button>
+    </div>
+</section>
+}
+
+<section class="featureList">
+    <div class="feature">
+        <img src="/images/shipping.png" alt="Shipping" class="featureImg">
+        <h4>FREE SHIPPING</h4>
+        <p>On all orders over $500.</p>
+    </div>
+    <div class="feature">
+        <img src="/images/return.png" alt="Shipping" class="featureImg">
+        <h4>30 DAYS RETURN</h4>
+        <p>Easy return and refund in 14 days.</p>
+    </div><div class="feature">
+        <img src="/images/contact.png" alt="Shipping" class="featureImg">
+        <h4>CONTACT US</h4>
+        <p>Keep in touch via email and support system.</p>
+    </div>
+</section>
+
+<section class="product">
+    <h1>New Products</h1>
+    <div class="shopContainer">
+        @foreach (var item in Model)
+        {
+            <div class="pro" onclick="location.href='@Url.Action("Details", new { id = item.Id })'">
+                <div class="mainImage">
+                    <img src="@item.ImageURL" alt="@item.Name" />
+                </div>
+                @if (User.IsInRole("Admin"))
+                {
+                    <h5 class="name">@Html.DisplayFor(modelItem => item.Name)</h5>
+                    <h4 class="price">@Html.DisplayFor(modelItem => item.Price)$</h4>
+                    <div class="buttons">
+                        <a class="edit" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a class="details" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a class="delete" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </div>
+                }
+                else if (User.IsInRole("User"))
+                {
+                    <h5 class="name">@Html.DisplayFor(modelItem => item.Name)</h5>
+                    <h4 class="price">@Html.DisplayFor(modelItem => item.Price)$</h4>
+                }
+                else
+                {
+                    <h5 class="name">@Html.DisplayFor(modelItem => item.Name)</h5>
+                    <h4 class="price">@Html.DisplayFor(modelItem => item.Price)$</h4>
+                }
+            </div>
+        }
+    </div>
+    <ul class="pagination shopPagination"></ul>
+</section> 

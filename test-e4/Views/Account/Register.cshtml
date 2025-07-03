@@ -1,0 +1,59 @@
+﻿@using test_e4.ViewModels;
+@model RegisterViewModel;
+
+@{
+	ViewData["Title"] = "Register";
+	Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<section class="login container grid" id="loginAccessRegister">
+	<ul class="loginHome">
+		<a asp-controller="Home" asp-action="Index">Home</a>
+	</ul>
+	<div class="loginAccess">
+		<h1 class="loginTitle">Create new account.</h1>
+		<div class="loginArea">
+			<form asp-action="Register" method="post" class="loginForm">
+				@Html.AntiForgeryToken()
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<div class="loginContent grid">
+					<div class="loginBox">
+						<input asp-for="Name" id="name" required placeholder=" " class="loginInput" />
+						<label asp-for="Name" class="loginLabel"></label>
+						<i class="ri-id-card-fill loginIcon"></i>
+					</div>
+					<span asp-validation-for="Name" class="text-danger"></span>
+					<div class="loginBox">
+						<input asp-for="Email" id="email" required placeholder=" " class="loginInput" />
+						<label asp-for="Email" class="loginLabel"></label>
+						<i class="ri-mail-fill loginIcon"></i>
+					</div>
+					<span asp-validation-for="Email" class="text-danger"></span>
+
+					<div class="loginBox">
+						<input asp-for="Password" id="password" required placeholder=" " class="loginInput" />
+						<label asp-for="Password" class="loginLabel"></label>
+						<i class="ri-eye-off-fill loginIcon loginPassword" id="loginPassword"></i>
+					</div>
+					<span asp-validation-for="Password" class="text-danger"></span>
+
+					<div class="loginBox">
+						<input asp-for="ConfirmPassword" id="password" required placeholder=" " class="loginInput" />
+						<label asp-for="ConfirmPassword" class="loginLabel"></label>
+						<i class="ri-eye-off-fill loginIcon loginPassword" id="loginPassword"></i>
+					</div>
+					<span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+				</div>
+				<input type="submit" value="Register" class="loginButton" />
+			</form>
+			<p class="loginSwitch">
+				Already have an account? <a asp-controller="Account" asp-action="Login" class="text-decoration-none">Login</a>
+			</p>
+		</div>
+	</div>
+</section>
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+	}
+}

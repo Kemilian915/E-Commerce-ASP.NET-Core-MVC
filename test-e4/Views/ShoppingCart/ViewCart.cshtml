@@ -1,0 +1,92 @@
+﻿@using test_e4.ViewModels;
+@model ShoppingCartViewModel;
+
+<section class="cart">
+	<div class="cartHeader">
+		<p>Product</p>
+		<p>Price</p>
+		<p>Quantity</p>
+		<p>Total</p>
+		<p>Remove</p>
+	</div>
+		@foreach (var item in Model.CartItems)
+		{
+	if (item.Product != null)
+	{
+		<div class="item">
+			<div class="cartProduct">
+				<img src="@item.Product.ImageURL" alt="@item.Product.Name" />
+				<div class="cartProductInfo">
+					<p>@item.Product.Name</p>
+					<p>@item.Product.Storage, @item.Product.Color</p>
+				</div>
+			</div>
+			<p class="cartPrice">$@item.Product.Price</p>
+			<div class="cartQuantity"><input type="number" value="@item.Quantity" min="1" data-index="${index}"></div>
+			<p class="cartTotal">@((item.Product.Price * item.Quantity).ToString("C"))</p>
+			<input type="hidden" value="@item.Product.Id" />
+			<a class="removeItem" asp-controller="ShoppingCart" asp-action="RemoveItem" asp-route-id="@item.Product.Id"><i class="far fa-times-circle"></i></a>
+		</div>
+		}
+		else
+		{
+			<p>Product information is unavailable</p>
+		}
+		}
+	<div class="cartItems"></div>
+	<div class="total">
+		<h4>Cart Total:</h4>
+		<p>Subtotal <span class="subtotal">@Model.TotalPrice.ToString("C")</span></p>
+		<p>Delivery Fee <span>Free</span></p>
+		<p>Total <span>@Model.TotalPrice.ToString("C")</span></p>
+		<button type="button" class="btn">Proceed to Checkout</button>
+ 	</div>
+	<div class="payment">
+		<h4 class="payTitle">Personal Information</h4>
+		<label>Name and Surname</label>
+		<input type="text" placeholder="John Doe" class="payInput">
+		<label>Phone Number</label>
+		<input type="text" placeholder="+1 234 5678" class="payInput">
+		<label>Address</label>
+		<input type="text" placeholder="Durres St 21 22-145" class="payInput">
+		<h4 class="payTitle">Card Information</h4>
+		<div class="cardIcons">
+			<img src="~/images/pay.png" width="150" alt="Payment Gateways" class="cardIcon">
+		</div>
+		<input type="password" class="payInput" placeholder="Card Number">
+		<div class="cardInfo">
+			<input type="text" placeholder="mm" class="payInput sm">
+			<input type="text" placeholder="yyyy" class="payInput sm">
+			<input type="text" placeholder="cvv" class="payInput sm">
+		</div>
+		<a class="payButton" asp-controller="ShoppingCart" asp-action="PurchaseItems">Checkout!</a>
+		<span class="close">X</span>
+	</div>
+</section>
+@section Scripts {
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const checkoutButton = document.querySelector(".btn");
+			const payment = document.querySelector(".payment");
+			const close = document.querySelector(".close");
+
+			if (checkoutButton && payment && close) {
+				checkoutButton.addEventListener("click", () => {
+					payment.style.display = "flex";
+					document.body.style.overflow = 'hidden';
+				});
+
+				close.addEventListener("click", () => {
+					payment.style.display = "none";
+					document.body.style.overflow = 'auto';
+				});
+			} else {
+				console.warn("Element(s) not found:", {
+					checkoutButton,
+					payment,
+					close
+				});
+			}
+		});
+	</script>
+}

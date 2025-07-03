@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - test_e4</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/detail-product.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/add-product.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/test_e4.styles.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+    @{
+        var cartItems = Context.Session.Get<List<test_e4.Models.ShoppingCartItem>>("Cart") ?? new List<test_e4.Models.ShoppingCartItem>();
+        var cartCount = cartItems.Sum(item => item.Quantity);
+    }
+
+
+    <sectiion class="header">
+        <h1>TechShop</h1>
+        <div>
+            <ul class="navbar">
+                <partial name="_LoginPartial" />
+                @if (User.IsInRole("Admin"))
+                {
+                    <li><a style="color: black" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a style="color: black" asp-area="" asp-controller="Products" asp-action="Index">Shop</a></li>
+                }
+                else if (User.IsInRole("User"))
+                {
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Products" asp-action="Index">Shop</a></li>
+                }
+                else
+                {
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Products" asp-action="Index">Shop</a></li>
+                }
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <span class="cartCount"></span>
+                    <a asp-area="" asp-controller="ShoppingCart" asp-action="ViewCart"><i class="fa-solid fa-cart-shopping"></i></a>
+                </li>
+            </ul>
+        </div>
+    </sectiion>
+
+	@RenderSection("Hero", required: false)
+    <div class="container-fluid">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="column">
+            <h1>TechShop</h1>
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> Tirana, Albania</p>
+            <p><strong>Phone:</strong> +355 69 123 4567 / +355 68 123 4567</p>
+            <p><strong>Hours</strong> 10:00 AM - 10:00 PM, Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="column">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact  Us</a>
+        </div>
+        <div class="column">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Helps</a>
+        </div>
+        <div class="column install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="~/images/app.jpg" alt="App Store">
+                <img src="~/images/play.jpg" alt="Google Play">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <img src="~/images/pay.png" alt="Payment Gateways">
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 TechShop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const badge = document.querySelector('.cartCount');
+        const serverCartCount = @cartCount;
+
+        if (badge) {
+            if (serverCartCount > 0) {
+                badge.textContent = serverCartCount;
+                badge.style.display = 'block';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+    </script>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/main.js" asp-append-version="true"></script>
+    <script src="~/js/pagination.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>
