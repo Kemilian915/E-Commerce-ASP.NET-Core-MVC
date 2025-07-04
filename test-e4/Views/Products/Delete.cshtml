@@ -23,7 +23,7 @@
 		</div>
 
 		<div class="proButton1">
-			<button class="addToCart">Add to Cart</button>
+			<a class="addToCart1" asp-controller="Products" asp-action="AddProductToCart" asp-route-id="@Model.Id">Add to Cart</a>
 			<div class="buttonGr">
 				<a class="proButton" asp-action="Index">Show All</a>
 				<form asp-action="Delete">

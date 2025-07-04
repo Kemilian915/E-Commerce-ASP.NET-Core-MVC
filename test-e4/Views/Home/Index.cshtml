@@ -10,8 +10,8 @@
     <div class="heroText">
         <h2>Galaxy S25 Ultra</h2>
         <h4>Galaxy AI</h4>
-        <button>Buy Now</button>
-    </div>
+            <a class="heroButton" asp-controller="Products" asp-action="Details" asp-route-id="29">Buy Now</a>
+        </div>
 </section>
 }
 
@@ -37,7 +37,7 @@
     <div class="shopContainer">
         @foreach (var item in Model)
         {
-            <div class="pro" onclick="location.href='@Url.Action("Details", new { id = item.Id })'">
+            <div class="pro" onclick="location.href='@Url.Action("Details","Products", new { id = item.Id })'">
                 <div class="mainImage">
                     <img src="@item.ImageURL" alt="@item.Name" />
                 </div>

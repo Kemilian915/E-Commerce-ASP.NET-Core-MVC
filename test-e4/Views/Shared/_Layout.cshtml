@@ -43,8 +43,8 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Products" asp-action="Index">Shop</a></li>
                 }
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 <li>
                     <span class="cartCount"></span>
                     <a asp-area="" asp-controller="ShoppingCart" asp-action="ViewCart"><i class="fa-solid fa-cart-shopping"></i></a>

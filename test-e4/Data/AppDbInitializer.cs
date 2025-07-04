@@ -42,7 +42,6 @@ namespace test_e4.Data
                       Description = "The Samsung Galaxy S25 brings advanced artificial intelligence and powerful performance in a sleek and durable design. With the integration of Google Gemini, you can easily multitask using voice commands. Equipped with the Snapdragon® 8 Elite Mobile platform for Galaxy, it offers smooth gaming, real-time Ray Tracing, and enhanced display technology with AI ProScaler. The advanced ProVisual Engine delivers stunning photography with 10-bit HDR, precise noise reduction, and customized AI-powered filters. Built with a sturdy aluminum frame, Corning® Gorilla® Glass Victus® 2, and IP68 water resistance, it’s made to last. Additionally, its long-lasting battery and enhanced security with Knox Vault make the Galaxy S25 an unparalleled smartphone in terms of performance and protection.",
                       ImageURL = "https://assets.shpresa.al/shop/2025/03/cb5025b9-cel2065-ssh-9.jpg"
                       },
-
                       new Product()
                       {
                       Name = "Apple iPhone 16e",
@@ -54,7 +53,6 @@ namespace test_e4.Data
                       Description = "The Apple iPhone 16e combines a stunning and durable design with cutting-edge technology, including the powerful A18 chip, Apple Intelligence, and an all-day battery. The 48MP Fusion camera captures high-resolution photos and 4K videos, while the 6.1-inch Super Retina XDR display delivers captivating visuals. With Face ID for secure access, the Action button for quick controls, USB-C connectivity, and advanced AI tools, it’s built for performance and convenience. Additionally, with 5G, Wi-Fi, eSIM, satellite connectivity, and safety features like Crash Detection and Emergency SOS, the iPhone 16e keeps you connected and protected wherever you are.",
                       ImageURL = "https://assets.shpresa.al/shop/2025/03/e9f4adbb-cel2067-b-3.jpg"
                       },
-
                       new Product()
                       {
                       Name = "Apple iPhone 16",
@@ -66,7 +64,6 @@ namespace test_e4.Data
                       Description = "iPhone 16 introduces Apple Intelligence, a personal and private system designed to enhance productivity and creativity. It includes advanced writing tools and modes for stunning 3D photos and videos, along with a powerful 48MP camera system featuring Ultra Wide capabilities. With the powerful A18 chip, extended battery life, faster MagSafe charging, and a durable aluminum design, iPhone 16 delivers outstanding performance, privacy, and style. The new Action button provides quick access to favorite features, making everyday tasks easier and faster to complete.",
                       ImageURL = "https://assets.shpresa.al/shop/2024/09/ec1a62ad-cel2021-u-2.jpg"
                       },
-
                       new Product()
                       {
                       Name = "Apple iPhone 16 Pro",
@@ -78,7 +75,6 @@ namespace test_e4.Data
                       Description = "The iPhone 16 Pro introduces remarkable innovations, including the powerful A18 Pro chip for unprecedented performance, a 48MP Ultra Wide camera for stunning photo quality, and 4K 120 fps Dolby Vision video for a cinematic experience. Its sleek Grade 5 titanium design provides durability and comes in eye-catching colors. With Camera Control, you can easily adjust settings like exposure with a swipe, while Apple Intelligence enhances personalization, privacy, and productivity. The iPhone 16 Pro also offers extended battery life, satellite messaging for emergencies, and advanced gaming capabilities with Ray Tracing technology.",
                       ImageURL = "https://assets.shpresa.al/shop/2024/09/8a732e9b-cel2020-d-3.jpg"
                       },
-
                       new Product()
                       {
                       Name = "Apple iPhone 16 Pro Max",
@@ -90,7 +86,6 @@ namespace test_e4.Data
                       Description = "The iPhone 16 Pro Max has a stunning titanium design with a 6.9-inch Super Retina XDR screen that offers exceptional lighting and clarity. It is empowered by the advanced A18 Pro chip, offering exceptional performance. The Pro camera system includes a 48MP main, ultra wide 12MP sensor and a 5x optical magnification telephony, enabling extraordinary photos and video recordings, including the 4K Dolby Vision recording. The phone also supports charging with MagSafe, offers improved water and dust resistance, and operates with the secure iOS 18 system with Apple Intelligence, providing privacy and ease in use.",
                       ImageURL = "https://assets.shpresa.al/shop/2024/09/9298bfce-cel2020-n-6.jpg"
                       },
-
                       new Product()
                       {
                       Name = "Google Pixel 9",
@@ -102,7 +97,6 @@ namespace test_e4.Data
                       Description = "Google Pixel 9 comes equipped with advanced features like Gemini, an integrated AI assistant that improves daily tasks and offers powerful photo editing with Magic Editor. Its camera system shines with a wide 50 MP camera and a 48 MP ultrawide lens for stunning photos in any light, including low-light, macro and astrophotography photos. With the Google Tensor G4 chip and 12 GB of RAM, it offers high performance, a 6.3-inch bright screen with a 120Hz refresh frequency and a long-lasting battery. In addition, it includes security features such as satellite emergency connection and 7 years of system and security updates.",
                       ImageURL = "https://assets.shpresa.al/shop/2024/08/c073dd80-cel2017-o-5.jpg"
                       },
-
                       new Product()
                       {
                       Name = "Google Pixel 9 Pro",
@@ -147,7 +141,6 @@ namespace test_e4.Data
     Description = "The iPhone 12 is a stylish and powerful smartphone from Apple, featuring a 6.1-inch Super Retina XDR OLED display that delivers sharp contrast, vibrant colors, and excellent clarity. It is powered by the A14 Bionic chip, the first 5-nanometer chip in a smartphone, offering exceptional speed and energy efficiency. The dual-camera system includes 12MP wide and ultra-wide lenses, with Night mode on both cameras, Smart HDR 3, and 4K Dolby Vision HDR recording for stunning photos and videos. With a sleek flat-edge design made from aerospace-grade aluminum and Ceramic Shield front cover, the iPhone 12 is both durable and modern. It supports 5G connectivity for faster downloads and streaming, MagSafe for easy wireless charging and accessory attachment, and runs on iOS, providing a smooth and secure user experience.",
     ImageURL = "https://assets.shpresa.al/shop/2020/10/9242a0dd-cel1181-bl.jpg"
 },
-
                       new Product()
 {
     Name = "Poco X7 Pro",
@@ -258,7 +251,6 @@ namespace test_e4.Data
     Description = "The Samsung Galaxy A56 5G combines an elegant design with powerful features, including a 6.7-inch FHD+ Super AMOLED screen with Vision Booster for stunning views, a 50 MP main camera with advanced Nightography and Object Eraser for perfect photos, as well as an improved Octa-core processor for uninterrupted performance. With a stable 5,000 mAh battery, strong Corning® Gorilla® Glass Victus®+ and IP67 water resistance, it is built to lengthen. Furthermore, it provides you with 6 years of security updates, Samsung Knox Vault for advanced privacy protection and easy file sharing with Quick Share.",
     ImageURL = "https://assets.shpresa.al/shop/2025/03/45057480-cel2061-gr-4.jpg"
 },
-
                     });
                     context.SaveChanges();
                 }

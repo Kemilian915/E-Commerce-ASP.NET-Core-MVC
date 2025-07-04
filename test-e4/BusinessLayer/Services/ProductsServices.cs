@@ -27,7 +27,10 @@ namespace test_e4.BusinessLayer.Services
 
         public async Task<IEnumerable<Product>> GetAllAsync()
         {
-            var result = await _context.Products.ToListAsync();
+            var result = await _context.Products
+                .OrderByDescending(p => p.Id)
+                .ToListAsync();
+
             return result;
         }
 

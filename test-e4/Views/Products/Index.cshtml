@@ -4,9 +4,12 @@
 	ViewData["Title"] = "List of Products";
 }
 
-<div class="addNew">
-    <a asp-controller="Products" asp-action="Create"> Add New </a>
-</div>
+@if (User.IsInRole("Admin"))
+{
+    <div class="addNew">
+        <a asp-controller="Products" asp-action="Create"> Add New </a>
+    </div>
+}
 
 <section class="product">
     <h1>New Products</h1>

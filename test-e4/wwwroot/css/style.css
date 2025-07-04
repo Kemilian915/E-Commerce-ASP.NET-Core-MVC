@@ -72,6 +72,11 @@ a {
         border-radius: 50px;
         border:none;
     }
+.aboutPage, .contactPage {
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 200px;
+}
 
 
 /* Header */
@@ -169,7 +174,7 @@ a {
     color: #ffffff;
 }
 
-.hero .heroText button{
+.hero .heroText .heroButton{
     background-color: #fa4f06;
     color: #ffffff;
     font-size: 20px;
@@ -179,7 +184,7 @@ a {
     transition: 0.3s ease;
     margin-top: 12px;
 }
-.hero .heroText button:hover{
+.hero .heroText .heroButton:hover{
     color: #000000;
     background-color: #ffffff;
     padding: 15px 20px;
